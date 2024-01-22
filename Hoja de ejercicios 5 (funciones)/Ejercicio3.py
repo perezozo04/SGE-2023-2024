@@ -1,15 +1,14 @@
 import re
 
 def es_nif(nif):
-    caracteres = nif.split()
-    
-    total = 0
-    
-    for i in caracteres:
-        if i < 8: digito = int(caracteres[i])
-        total += digito
-    if total/23 < 23 : return True
-    else: return False
+    numeroDNI = nif[:8]
+    numletra = int(numeroDNI) % 23
+    abecedario = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    letra = abecedario[numletra]
+    if letra != nif[8:]:
+        return False
+    else:
+        return True
     
 def validar_dni(dni):
     expresion_regular = "^[0-9]{8}[A-Z]$"
