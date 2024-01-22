@@ -23,20 +23,35 @@ def menu():
     if opcion == 2:
         for i in range(len(listaAlumnos)):
             print(f"Alumno: {listaAlumnos[i]} Nota: {listaNotas[i]}")
+        menu()
     if opcion == 3:
         alumnmosAprobados()
+        menu()
+    if opcion == 4:
+        numAprobados()
+        menu()
+    if opcion == 5:
+        aluMaxNota()
+        menu()
+    if opcion == 6:
+        aluMedNota()
+        menu()
+    if opcion == 7:
+        
 
-def alumnmosAprobados(listaAlumnos, listaNotas):
+def alumnmosAprobados():
     listaAprobados = []
     for i in range(len(listaAlumnos)):
         if listaNotas[i] >= 5: listaAprobados.append(listaAlumnos[i])
+    print(listaAprobados)
 
-def numAprobados(listaNotas):
+def numAprobados():
     aprobados = 0
     for i in range(len(listaNotas)):
         if listaNotas[i] >= 5: aprobados += 1
+    print(aprobados)
 
-def aluMaxNota(listaAlumnos, listaNotas):
+def aluMaxNota():
     notaMax = 0
     listaAlumnosMax = []
     for i in range(len(listaNotas)):
@@ -45,18 +60,22 @@ def aluMaxNota(listaAlumnos, listaNotas):
             notaMax = listaNotas[i]
         elif notaMax == listaNotas[i]:
             listaAlumnosMax.append(listaNotas[i])
-    return listaAlumnosMax
+    print(listaAlumnosMax)
 
 
-def aluMedNota(listaAlumnos, listaNotas): 
+def aluMedNota(): 
     notasTotal = 0
     notaMedia = 0
+    listaAlumnosMedia = []
     for i in range(len(listaNotas)):
         notasTotal += listaNotas[i]
     notaMedia = notasTotal/len(listaNotas)
-    return notaMedia
+    for i in range(len(listaAlumnos)):
+        if listaNotas[i] > notaMedia:
+            listaAlumnosMedia.append(listaAlumnos[i])
+    print(listaAlumnosMedia)
 
-def estaEnClase(listaAlumnos, listaNotas, nombre):
+def estaEnClase(nombre):
     notaAlumno = 0
     nombreAlumno = "none"
     i = 0
@@ -66,9 +85,9 @@ def estaEnClase(listaAlumnos, listaNotas, nombre):
             notaAlumno = listaNotas[i]
             i = len(listaAlumnos)+1
         i += 1
-    if nombreAlumno != none:
-        return nombreAlumno, notaAlumno 
-    else: return nombreAlumno
+    if nombreAlumno != "none":
+        print(f"Alumno: {nombreAlumno} Nota: {notaAlumno}")
+    else: print("No se ha encontrado al alumno")
 
 
     
