@@ -13,7 +13,7 @@ def menu():
     print("7) Nota estudiante")
     print("8) Finalizar ejecución del programa")
 
-    opcion = int(input("Elige una opcion del 1 al 8"))
+    opcion = int(input("Elige una opcion del 1 al 8: "))
     if opcion == 1:
         nombre = input("Nombre del alumno que quieres añadir: ")
         nota = int(input("Nota del alumno añadido"))
@@ -37,7 +37,13 @@ def menu():
         aluMedNota()
         menu()
     if opcion == 7:
-        
+        estudiante = input("Nombre de estudiante: ")
+        for i in range(len(listaAlumnos)):
+            if estudiante == listaAlumnos[i]:
+                print(f"Alumno: {listaAlumnos[i]} Nota: {listaNotas[i]}")
+        menu()
+    if opcion == 8:
+        exit()
 
 def alumnmosAprobados():
     listaAprobados = []
@@ -56,7 +62,7 @@ def aluMaxNota():
     listaAlumnosMax = []
     for i in range(len(listaNotas)):
         if listaNotas[i] > notaMax: 
-            istaAlumnosMax = listaNotas[i]
+            listaAlumnosMax = listaAlumnos[i]
             notaMax = listaNotas[i]
         elif notaMax == listaNotas[i]:
             listaAlumnosMax.append(listaNotas[i])
@@ -90,4 +96,4 @@ def estaEnClase(nombre):
     else: print("No se ha encontrado al alumno")
 
 
-    
+menu()
