@@ -7,7 +7,7 @@ def es_primo(n):
     else : return True
 
 n = int(input("Introduzca un numero: "))
-cadena = "Numeros primos primos [2-" + str(n) + ": "
+cadena = "Numeros primos primos [2-" + str(n) + "]: "
 for i in range(2, n+1):
     if es_primo(i) : cadena += str(i) + ", "
 
