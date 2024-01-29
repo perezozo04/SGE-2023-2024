@@ -1,5 +1,5 @@
 import random
-dia = 0
+
 
 def main():
     filas = int(input("Introduce el numero de filas: "))
@@ -7,7 +7,7 @@ def main():
 
     matriz = GenerarCiudad(filas, columnas)
 
-    MostrarCiudad(matriz, dia)
+    
 
     Contagiar(matriz)
 
@@ -27,12 +27,15 @@ def GenerarCiudad(filas, columnas):
     return matriz
 
 def MostrarCiudad(matriz, dia):
-    print(f"Dia {dia}")
+    print(f"Dia {dia}", end="\n\n")
     for fila in matriz:
-        print(fila)
+        print("", end="\t")
+        for e in fila:
+            print(e, end="\t")
+        print()    
 
 def Contagiar(matriz):
-    global dia
+    dia = 0
 
     while any("SANO" in fila for fila in matriz):
         dia += 1
