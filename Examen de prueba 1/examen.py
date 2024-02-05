@@ -7,8 +7,6 @@ def main():
 
     matriz = GenerarCiudad(filas, columnas)
 
-    
-
     Contagiar(matriz)
 
 def GenerarCiudad(filas, columnas):

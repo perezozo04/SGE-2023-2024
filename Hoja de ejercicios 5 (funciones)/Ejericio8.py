@@ -12,38 +12,32 @@ def menu():
     print("6) Estudiantes con nota mayor o igual a la media")
     print("7) Nota estudiante")
     print("8) Finalizar ejecución del programa")
-
-    opcion = int(input("Elige una opcion del 1 al 8: "))
-    if opcion == 1:
-        nombre = input("Nombre del alumno que quieres añadir: ")
-        nota = int(input("Nota del alumno añadido"))
-        listaAlumnos.append(nombre)
-        listaNotas.append(nota)
-        menu()
-    if opcion == 2:
-        for i in range(len(listaAlumnos)):
-            print(f"Alumno: {listaAlumnos[i]} Nota: {listaNotas[i]}")
-        menu()
-    if opcion == 3:
-        alumnmosAprobados()
-        menu()
-    if opcion == 4:
-        numAprobados()
-        menu()
-    if opcion == 5:
-        aluMaxNota()
-        menu()
-    if opcion == 6:
-        aluMedNota()
-        menu()
-    if opcion == 7:
-        estudiante = input("Nombre de estudiante: ")
-        for i in range(len(listaAlumnos)):
-            if estudiante == listaAlumnos[i]:
+    opcion = 1
+    
+    while opcion > 0 and opcion < 8:
+        opcion = int(input("Elige una opcion del 1 al 8: "))
+        if opcion == 1:
+            nombre = input("Nombre del alumno que quieres añadir: ")
+            nota = int(input("Nota del alumno añadido: "))
+            listaAlumnos.append(nombre)
+            listaNotas.append(nota)       
+        if opcion == 2:
+            for i in range(len(listaAlumnos)):
                 print(f"Alumno: {listaAlumnos[i]} Nota: {listaNotas[i]}")
-        menu()
-    if opcion == 8:
-        exit()
+        if opcion == 3:
+            alumnmosAprobados()
+        if opcion == 4:
+            numAprobados()
+        if opcion == 5:
+            aluMaxNota()
+        if opcion == 6:
+            aluMedNota()
+        if opcion == 7:
+            estudiante = input("Nombre de estudiante: ")
+            for i in range(len(listaAlumnos)):
+                if estudiante == listaAlumnos[i]:
+                    print(f"Alumno: {listaAlumnos[i]} Nota: {listaNotas[i]}")
+        
 
 def alumnmosAprobados():
     listaAprobados = []
@@ -61,11 +55,12 @@ def aluMaxNota():
     notaMax = 0
     listaAlumnosMax = []
     for i in range(len(listaNotas)):
-        if listaNotas[i] > notaMax: 
-            listaAlumnosMax = listaAlumnos[i]
+        if listaNotas[i] > notaMax:
+            listaAlumnosMax.clear() 
+            listaAlumnosMax.append(listaAlumnos[i])
             notaMax = listaNotas[i]
         elif notaMax == listaNotas[i]:
-            listaAlumnosMax.append(listaNotas[i])
+            listaAlumnosMax.append(listaAlumnos[i])
     print(listaAlumnosMax)
 
 
